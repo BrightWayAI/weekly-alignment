@@ -19,11 +19,11 @@ You are running the onboarding flow for the Weekly Alignment Scanner plugin. You
 
 ## Step 0: Resolve plugin config root
 
-Per-plugin config in this marketplace lives under a user-chosen folder, recorded at `~/.claude-plugin-config-root` (single-line text file in the user's home directory).
+Per-plugin config in this marketplace lives under a user-chosen folder, recorded at `~/Documents/.claude-plugin-config-root` (single-line text file in the user's home directory).
 
 ### A — Try the pointer
 
-Call `request_cowork_directory(~)` if not granted, then read `~/.claude-plugin-config-root`.
+Call `request_cowork_directory(~/Documents)` if not granted, then read `~/Documents/.claude-plugin-config-root`.
 - **Exists**: read line 1 → mount via `request_cowork_directory(<config-root>)`. Skip to section C.
 - **Missing**: continue to section B.
 
@@ -32,7 +32,7 @@ Call `request_cowork_directory(~)` if not granted, then read `~/.claude-plugin-c
 Prompt: "First-time plugin setup. Where should I store your plugin config? Pick a folder you control (e.g., `~/Documents/Claude/` or `~/Documents/PluginConfig/`). The folder will hold per-plugin settings under a `plugins/` subdirectory."
 
 Then:
-1. Call `request_cowork_directory(<path>)`. Create `<path>/plugins/`. Write absolute path to `~/.claude-plugin-config-root`.
+1. Call `request_cowork_directory(<path>)`. Create `<path>/plugins/`. Write absolute path to `~/Documents/.claude-plugin-config-root`.
 
 For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's org context lives at **`<config-root>/plugins/weekly-alignment.org-context.md`** and scan history at **`<config-root>/plugins/weekly-alignment.history/`**.
 
