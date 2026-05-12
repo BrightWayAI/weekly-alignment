@@ -33,7 +33,6 @@ Prompt: "First-time plugin setup. Where should I store your plugin config? Pick 
 
 Then:
 1. Call `request_cowork_directory(<path>)`. Create `<path>/plugins/`. Write absolute path to `~/.claude-plugin-config-root`.
-2. **Pre-staged content**: if `~/Documents/Claude/plugin-configs/*.org-context.md` or similar files exist, offer to copy into `<path>/plugins/`.
 
 For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's org context lives at **`<config-root>/plugins/weekly-alignment.org-context.md`** and scan history at **`<config-root>/plugins/weekly-alignment.history/`**.
 
