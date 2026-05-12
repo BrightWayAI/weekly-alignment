@@ -40,8 +40,8 @@ Plus whatever org-specific patterns you describe during setup.
 ### Install
 
 ```
-/plugin marketplace add BrightWayAI/claude-plugins
-/plugin install weekly-alignment@claude-plugins
+/plugin marketplace add BrightWayAI/nucleus
+/plugin install weekly-alignment@nucleus
 ```
 
 Or copy this `weekly-alignment` folder into your Claude Code plugins directory.
