@@ -4,7 +4,17 @@ All notable changes to weekly-alignment are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
 
-## [1.3.0] — Current release
+## [1.4.0] — Config-root refactor
+
+### Changed
+- **Plugin config + scan history moved to a user-chosen folder.** Previously used `${CLAUDE_PLUGIN_DATA}/references/org-context.md` and `${CLAUDE_PLUGIN_DATA}/history/`, which resolved inside the plugin's source folder (read-only under Cowork). Now lives at:
+  - `<config-root>/plugins/weekly-alignment.org-context.md` (org-context replaces former references path)
+  - `<config-root>/plugins/weekly-alignment.history/` (scan + pulse + report history)
+- **Setup gets a Step 0 config-root bootstrap** before the Slack-connection check (renamed to Step 0b).
+- **All operating skills** (`scan`, `daily-pulse`, `report`, `update-risks`) updated to read/write the new paths.
+- **User-facing prompts debranded** for fork-friendliness.
+
+## [1.3.0] — Initial published release
 
 ### State
 - Five skills shipping: `setup`, `scan`, `daily-pulse`, `report`, `update-risks`.

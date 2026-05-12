@@ -17,7 +17,29 @@ You are running the onboarding flow for the Weekly Alignment Scanner plugin. You
 
 ---
 
-## Step 0: Check Slack Connection
+## Step 0: Resolve plugin config root
+
+Per-plugin config in this marketplace lives under a user-chosen folder, recorded at `~/.claude-plugin-config-root` (single-line text file in the user's home directory).
+
+### A — Try the pointer
+
+Call `request_cowork_directory(~)` if not granted, then read `~/.claude-plugin-config-root`.
+- **Exists**: read line 1 → mount via `request_cowork_directory(<config-root>)`. Skip to section C.
+- **Missing**: continue to section B.
+
+### B — First-time bootstrap
+
+Prompt: "First-time plugin setup. Where should I store your plugin config? Pick a folder you control (e.g., `~/Documents/Claude/` or `~/Documents/PluginConfig/`). The folder will hold per-plugin settings under a `plugins/` subdirectory."
+
+Then:
+1. Call `request_cowork_directory(<path>)`. Create `<path>/plugins/`. Write absolute path to `~/.claude-plugin-config-root`.
+2. **Pre-staged content**: if `~/Documents/Claude/plugin-configs/*.org-context.md` or similar files exist, offer to copy into `<path>/plugins/`.
+
+For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's org context lives at **`<config-root>/plugins/weekly-alignment.org-context.md`** and scan history at **`<config-root>/plugins/weekly-alignment.history/`**.
+
+---
+
+## Step 0b: Check Slack Connection
 
 Before asking any questions, check if Slack MCP tools are available (look for `slack_read_channel`, `slack_search_channels`, `slack_search_public_and_private`).
 
@@ -152,7 +174,7 @@ Present options, then let them customize:
 ## Step 7: Write the Context File
 
 Once all answers are collected, write the org-context file at:
-`${CLAUDE_PLUGIN_DATA}/references/org-context.md`
+`<config-root>/plugins/weekly-alignment.org-context.md`
 
 Use this format:
 
