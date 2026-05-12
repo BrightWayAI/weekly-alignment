@@ -23,8 +23,8 @@ Per-plugin config in this marketplace lives under a user-chosen folder, recorded
 
 ### A — Try the pointer
 
-Call `request_cowork_directory(~/Documents)` if not granted, then read `~/Documents/.claude-plugin-config-root`.
-- **Exists**: read line 1 → mount via `request_cowork_directory(<config-root>)`. Skip to section C.
+Ensure access to `~/Documents`. In Cowork, call `request_cowork_directory(~/Documents)` once if not already granted. In Claude Code (or any environment with direct filesystem access), no mount is needed. Then read `~/Documents/.claude-plugin-config-root`.
+- **Exists**: read line 1 → that's the config root path. Ensure access to `<config-root>`. If running in Cowork and the folder isn't already mounted in this session, call `request_cowork_directory(<config-root>)`. If running in Claude Code or another environment with direct filesystem access, no mount call is needed. Skip to section C.
 - **Missing**: continue to section B.
 
 ### B — First-time bootstrap
@@ -32,7 +32,7 @@ Call `request_cowork_directory(~/Documents)` if not granted, then read `~/Docume
 Prompt: "First-time plugin setup. Where should I store your plugin config? Pick a folder you control (e.g., `~/Documents/Claude/` or `~/Documents/PluginConfig/`). The folder will hold per-plugin settings under a `plugins/` subdirectory."
 
 Then:
-1. Call `request_cowork_directory(<path>)`. Create `<path>/plugins/`. Write absolute path to `~/Documents/.claude-plugin-config-root`.
+1. Ensure access to `<path>`. If running in Cowork and the folder isn't already mounted in this session, call `request_cowork_directory(<path>)`. If running in Claude Code or another environment with direct filesystem access, no mount call is needed. Create `<path>/plugins/`. Write absolute path to `~/Documents/.claude-plugin-config-root`.
 
 For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's org context lives at **`<config-root>/plugins/weekly-alignment.org-context.md`** and scan history at **`<config-root>/plugins/weekly-alignment.history/`**.
 
