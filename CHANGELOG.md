@@ -4,6 +4,13 @@ All notable changes to alignment (formerly weekly-alignment) are documented here
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
 
+## [1.6.1] — OpenAI host adapter (2026-09-14)
+
+### Added
+- Native Codex/ChatGPT plugin manifest, durable `AGENTS.md` entrypoint, and an explicit OpenAI capability/degradation contract.
+- GPT-discoverable skill aliases for canonical command workflows and read-only Codex role bindings where this plugin ships agents.
+- Shared config-root resolution compatible with Cortex and Claude; all GPT tests use repository fixtures or temporary directories only.
+
 ## [1.6.0] — renamed to alignment (2026-09-15)
 
 ### Changed
