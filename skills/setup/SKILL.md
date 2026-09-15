@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: setup
 description: >
   Set up or update your Weekly Alignment Scanner. Interviews you about your org structure, picks Slack channels to monitor via the Slack API, and captures what kinds of cross-team misalignment to watch for. Run this on first use or anytime your org changes.

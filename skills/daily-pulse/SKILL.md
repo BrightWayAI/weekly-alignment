@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: daily-pulse
 description: >
   Quick daily check across monitored Slack channels. Lighter than the full weekly scan — skims for anything urgent or noteworthy since yesterday. Use when the user says "daily pulse", "quick check", "anything happening today", "daily alignment", "what did I miss", or any variation of a quick cross-team status check.

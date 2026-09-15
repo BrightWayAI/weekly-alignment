@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: update-risks
 description: >
   Quickly update any part of the alignment scanner config — risks, tensions, teams, channels, delivery preferences, or watch patterns — without re-running the full setup interview. Use when the user says "update risks", "add a risk", "new tension", "remove risk", "things changed", "update what to watch for", "update config", "change delivery", "update teams", "change channels", "update preferences", "add a channel", "remove a team", or any variation of modifying the scanner configuration.
