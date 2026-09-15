@@ -1,8 +1,18 @@
 ---
-name: weekly-alignment-scan
+name: scan
 description: >
   Weekly cross-team alignment scanner. Reads Slack channels configured during setup, identifies overlapping initiatives, conflicting priorities, decisions that affect other teams without their knowledge, and resource conflicts — then delivers a concise Monday morning brief. Use this skill when the user says "run my weekly alignment check", "alignment scan", "weekly alignment", "cross-team check", "what's misaligned", "team alignment brief", or any variation involving checking for cross-team conflicts or overlapping work. Also trigger when a scheduled task invokes this skill.
 ---
+
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
 
 # Weekly Alignment Scanner
 

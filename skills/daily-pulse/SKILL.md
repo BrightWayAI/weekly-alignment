@@ -1,8 +1,18 @@
 ---
-name: weekly-alignment-daily-pulse
+name: daily-pulse
 description: >
   Quick daily check across monitored Slack channels. Lighter than the full weekly scan — skims for anything urgent or noteworthy since yesterday. Use when the user says "daily pulse", "quick check", "anything happening today", "daily alignment", "what did I miss", or any variation of a quick cross-team status check.
 ---
+
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
 
 # Daily Pulse Check
 

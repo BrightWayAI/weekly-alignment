@@ -1,8 +1,18 @@
 ---
-name: weekly-alignment-report
+name: report
 description: >
   Deep dive into a specific cross-team conflict or alignment issue. Use when the user says "dig into", "deep dive", "tell me more about", "investigate the conflict between", "report on", or any variation of wanting a detailed analysis of a specific misalignment — not a broad scan, but a focused investigation of one issue.
 ---
+
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
 
 # Alignment Deep Dive Report
 

@@ -1,0 +1,35 @@
+{
+  "name": "weekly-alignment",
+  "version": "1.4.4",
+  "description": "Scan configured Slack sources for cross-team alignment signals and produce daily pulses, weekly reports, and risk updates.",
+  "author": {
+    "name": "BrightWay AI",
+    "url": "https://brightwayai.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/BrightWayAI/weekly-alignment",
+  "repository": "https://github.com/BrightWayAI/weekly-alignment",
+  "keywords": [
+    "nucleus",
+    "chatgpt",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Weekly Alignment",
+    "shortDescription": "Find cross-team overlaps, conflicts, and decision risks",
+    "longDescription": "Scan configured Slack sources for cross-team alignment signals and produce daily pulses, weekly reports, and risk updates.",
+    "developerName": "BrightWay AI",
+    "category": "Teamwork",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/BrightWayAI/weekly-alignment",
+    "defaultPrompt": [
+      "Scan Slack for alignment risks.",
+      "Create this week's alignment report.",
+      "Update our monitored risks."
+    ]
+  }
+}

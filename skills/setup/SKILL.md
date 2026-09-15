@@ -1,8 +1,18 @@
 ---
-name: weekly-alignment-setup
+name: setup
 description: >
   Set up or update your Weekly Alignment Scanner. Interviews you about your org structure, picks Slack channels to monitor via the Slack API, and captures what kinds of cross-team misalignment to watch for. Run this on first use or anytime your org changes.
 ---
+
+<!-- OPENAI-ADAPTER:START -->
+## OpenAI host binding
+
+Before acting, read `../../references/openai-portability.md`. That file translates
+host-specific tools, agents, artifacts, scheduling, connectors, and config-root
+access for ChatGPT and Codex. It overrides concrete Claude/Cowork tool names only;
+the workflow, safety gates, and output contract in this skill remain canonical.
+<!-- OPENAI-ADAPTER:END -->
+
 
 # Weekly Alignment Scanner — Setup
 
