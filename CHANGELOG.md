@@ -4,6 +4,12 @@ All notable changes to weekly-alignment are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
 
+## [1.5.3] — host-neutral role metadata (2026-09-15)
+
+### Changed
+- Added a host-neutral reasoning tier alongside the Claude model binding for alignment scans.
+- Standardized first-time setup on the vendor-neutral config-root resolver.
+
 ## [1.5.2] — Codex adapter synchronization (2026-09-15)
 
 ### Added
