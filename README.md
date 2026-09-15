@@ -17,6 +17,8 @@ This plugin hands that job to Claude.
 | **report** | `dig into [issue]` | Deep dive into a specific conflict. Goes back 14 days, traces the timeline, recommends a concrete next step. |
 | **update-risks** | `update risks` / `update config` | Quickly update any part of your scanner config — risks, channels, teams, patterns, delivery preferences — without re-running the full setup. |
 
+`scan`, `daily-pulse`, and `report` each delegate their Slack-reading and synthesis to the `alignment-scanner` subagent (mode-dispatched: `scan` / `pulse` / `report`) — the skill itself just handles pre-flight checks, delivery, and history.
+
 ## What It Detects
 
 - **Duplicate work** — two teams building the same thing without knowing

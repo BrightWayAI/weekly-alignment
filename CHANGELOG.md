@@ -4,6 +4,27 @@ All notable changes to weekly-alignment are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
 
+## [1.5.0] — New alignment-scanner agent (2026-09-15)
+
+Nucleus Operating Model Refactor Phase 3 step 3.6.
+
+### Added
+- `agents/alignment-scanner.md` — new mode-dispatched agent (`mode: scan` /
+  `mode: pulse` / `mode: report`) extracted from the inline Slack-reading and
+  synthesis logic that previously lived directly in `skills/scan`,
+  `skills/daily-pulse`, and `skills/report`. This plugin already does
+  multi-channel synthesis work structurally identical to core-ops's
+  `pipeline-analyst` — running it as a subagent keeps that read-and-synthesize
+  work in its own context window and returns a structured brief instead of
+  bloating the parent conversation.
+
+### Changed
+- `skills/scan/SKILL.md`, `skills/daily-pulse/SKILL.md`,
+  `skills/report/SKILL.md` — slimmed to pre-flight checks, delegating to
+  `alignment-scanner`, delivery, and history-saving. All Slack reads and
+  synthesis moved to the agent; behavior is unchanged from the user's
+  perspective.
+
 ## [1.4.5] — Identity/voice moved to memory/me/ (2026-09-15)
 
 ### Changed

@@ -16,7 +16,7 @@ the workflow, safety gates, and output contract in this skill remain canonical.
 
 # Alignment Deep Dive Report
 
-You are producing a focused investigation into a specific cross-team conflict or alignment issue. Unlike the weekly scan (which covers everything) or the daily pulse (which skims), this is a thorough analysis of ONE issue.
+You are producing a focused investigation into one cross-team conflict. The read-deep-and-reconstruct work is delegated to the `alignment-scanner` agent (`mode: report`); this skill handles pre-flight, scoping the issue, delivery, and history.
 
 ## Pre-Flight Check
 
@@ -38,98 +38,33 @@ Then invoke the Skill tool with skill `weekly-alignment-setup`.
 
 **If configured:** Proceed.
 
-## Step 1: Understand the Issue
+## Step 1: Scope the Issue
 
-If the user gave you a specific issue (e.g., "dig into the caching conflict between Platform and Product"), use that.
+If the user gave a specific issue (e.g., "dig into the caching conflict between Platform and Product"), use that.
 
 If they said something vague (e.g., "investigate the thing from this week's scan"), ask:
 "Which issue do you want me to dig into? Give me the teams involved or a short description."
 
-## Step 2: Deep Read Relevant Channels
+Never pass a vague issue to the agent — always resolve it to a scoped description first.
 
-Identify which channels are relevant to this specific issue — both from the configured list and any others the user mentions.
+## Step 2: Delegate to alignment-scanner
 
-For each relevant channel:
+Invoke the Task tool with `subagent_type="alignment-scanner"` and `mode: "report"`. Pass the parsed org context and the scoped `issue`.
 
-1. Use `slack_read_channel` to read the last **14 days** (not just 7 — go deeper than the weekly scan)
-2. Use `slack_search_public_and_private` to search for keywords related to the issue
-3. Use `slack_read_thread` to follow any threads where key decisions or discussions happened
-4. Track:
-   - **Timeline of events** — when did this issue first appear? How did it evolve?
-   - **Key people** — who's involved, who made what decisions
-   - **Decision points** — where did the paths diverge?
-   - **Current state** — where does each team think they stand right now?
+## Step 3: Deliver the Report
 
-## Step 3: Reconstruct the Story
+Deliver based on the org context's delivery preferences. For reports, also offer to create a Slack canvas (`slack_create_canvas`) since these are longer documents worth sharing.
 
-Build a narrative timeline:
-- When did each team start their work?
-- At what point did they diverge or overlap?
-- Were there any moments where someone almost caught it? (e.g., a question in a thread that went unanswered)
-- What's the current trajectory if nothing changes?
-
-## Step 4: Assess Impact
-
-- **What breaks if this isn't resolved?** Be specific — wasted sprints, conflicting deploys, customer-facing issues, etc.
-- **How much time/effort has already been invested?** Try to estimate from the discussion timeline.
-- **What's the blast radius?** Which teams are directly affected? Who else gets impacted downstream?
-- **Is there a deadline that forces a decision?** A launch date, a dependency, a customer commitment?
-
-## Step 5: Suggested Next Step
-
-Based on the investigation, recommend ONE concrete next step. Be specific:
-- Who should talk to whom
-- What decision needs to be made
-- By when (if there's a forcing function)
-
-Don't try to produce multiple strategic options with tradeoff analysis — you're working from Slack messages, not strategy documents. One clear, actionable recommendation is more useful than three speculative ones.
-
-## Step 6: Deliver the Report
-
-Format:
-
----
-
-**ALIGNMENT DEEP DIVE — [Short issue title]**
-**Date:** [date]
-**Teams:** [teams involved]
-
----
-
-### Summary
-[2-3 sentences — what's happening, why it matters, what to do]
-
-### Timeline
-[Chronological reconstruction with dates, channel references, and key quotes]
-
-### Impact Assessment
-- **Risk level:** HIGH / MEDIUM / LOW
-- **Effort at risk:** [estimate]
-- **Blast radius:** [teams affected]
-- **Decision deadline:** [date or "no hard deadline"]
-
-### Suggested Next Step
-[One concrete recommendation — who should talk to whom, what decision needs to be made, and by when. E.g., "Schedule a 30-min sync between @alice and @bob this week to decide who owns caching. Share this report as pre-read. Decision needed before Thursday's deploy."]
-
----
-
-Deliver based on the user's org context preferences. For reports, also offer to create a Slack canvas (`slack_create_canvas`) since these are longer documents worth sharing.
-
-## Save to History
+## Step 4: Save to History
 
 Save the full report to:
 `<config-root>/plugins/weekly-alignment.history/reports/[YYYY-MM-DD]-[short-slug].md`
 
 Where `[short-slug]` is a kebab-case summary of the issue (e.g., `caching-conflict-platform-product`).
 
-## Notes
+## Step 5: Offer to Update Risks
 
-- **Go deep.** This is the opposite of the daily pulse. Read threads, follow conversations, trace decisions back to their origin.
-- **Name names.** Reference specific people, messages, and dates. This report needs to be actionable, not abstract.
-- **Be fair.** Present both sides. Don't frame one team as "wrong" — frame the situation as a coordination gap.
-- **Offer to update risks.** If this investigation reveals something that should be added to the ongoing risk tracker, offer to run `weekly-alignment-update-config`.
-
-After delivering the report, offer:
+After delivering, offer:
 "Want me to add this to your tracked risks so the weekly scan keeps an eye on it? Just say 'yes' and I'll update your config."
 
-If they say yes, invoke the Skill tool with skill `weekly-alignment-update-config`.
+If yes, invoke the Skill tool with skill `weekly-alignment-update-config`.
