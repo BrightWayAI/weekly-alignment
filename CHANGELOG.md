@@ -4,6 +4,11 @@ All notable changes to weekly-alignment are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
 
+## [1.5.2] — Codex adapter synchronization (2026-09-15)
+
+### Added
+- Read-only Codex binding for the mode-dispatched `alignment-scanner` agent.
+
 ## [1.5.1] — Skill auto-invocation audit (2026-09-15)
 
 Nucleus Operating Model Refactor Phase 3 step 3.7. Ritual and side-effecting

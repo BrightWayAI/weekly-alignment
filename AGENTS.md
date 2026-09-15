@@ -13,5 +13,7 @@ Treat `commands/` and authored `skills/` as canonical. OpenAI alias skills are t
 entrypoints and must not fork workflow behavior. Treat the installed plugin directory
 as read-only at runtime. User state belongs under the shared `<config-root>` resolved
 by the precedence chain in the portability reference.
+Read-only Codex role bindings live in `.codex/agents/`. If role delegation is unavailable, execute the same source role inline and preserve its read-only boundary.
+
 Never fabricate connector data. Keep drafts as drafts, and confirm any external write,
 send, schedule registration, or destructive action at the point of action.
