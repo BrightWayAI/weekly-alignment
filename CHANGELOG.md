@@ -1,8 +1,13 @@
 # Changelog
 
-All notable changes to weekly-alignment are documented here.
+All notable changes to alignment (formerly weekly-alignment) are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
+
+## [1.6.0] — renamed to alignment (2026-09-15)
+
+### Changed
+- Renamed from `weekly-alignment` to `alignment` (display name: Team Alignment) as part of the 2026-09-15 Nucleus plugin rename. Old plugin ID/repo name redirects; see marketplace catalog.
 
 ## [1.5.3] — host-neutral role metadata (2026-09-15)
 

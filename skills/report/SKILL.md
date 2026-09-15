@@ -30,11 +30,11 @@ Verify that Slack MCP tools are available (`slack_read_channel`, `slack_search_c
 ### Check Org Context
 
 Read the org context file at:
-`<config-root>/plugins/weekly-alignment.org-context.md`
+`<config-root>/plugins/alignment.org-context.md`
 
 **If the file does not exist at all, or contains `[NOT YET CONFIGURED]` markers:** Tell the user:
 "You haven't set up your alignment scanner yet. Let's do that first."
-Then invoke the Skill tool with skill `weekly-alignment-setup`.
+Then invoke the Skill tool with skill `alignment-setup`.
 
 **If configured:** Proceed.
 
@@ -58,7 +58,7 @@ Deliver based on the org context's delivery preferences. For reports, also offer
 ## Step 4: Save to History
 
 Save the full report to:
-`<config-root>/plugins/weekly-alignment.history/reports/[YYYY-MM-DD]-[short-slug].md`
+`<config-root>/plugins/alignment.history/reports/[YYYY-MM-DD]-[short-slug].md`
 
 Where `[short-slug]` is a kebab-case summary of the issue (e.g., `caching-conflict-platform-product`).
 
@@ -67,4 +67,4 @@ Where `[short-slug]` is a kebab-case summary of the issue (e.g., `caching-confli
 After delivering, offer:
 "Want me to add this to your tracked risks so the weekly scan keeps an eye on it? Just say 'yes' and I'll update your config."
 
-If yes, invoke the Skill tool with skill `weekly-alignment-update-config`.
+If yes, invoke the Skill tool with skill `alignment-update-config`.

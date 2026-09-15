@@ -1,7 +1,7 @@
 {
-  "name": "weekly-alignment",
-  "version": "1.5.3",
-  "description": "Scan configured Slack sources for cross-team alignment signals and produce daily pulses, weekly reports, and risk updates.",
+  "name": "alignment",
+  "version": "1.6.0",
+  "description": "Team Alignment. Scan configured Slack sources for cross-team alignment signals and produce daily pulses, weekly reports, and risk updates.",
   "author": {
     "name": "BrightWay AI",
     "url": "https://brightwayai.com"
@@ -16,7 +16,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Weekly Alignment",
+    "displayName": "Team Alignment",
     "shortDescription": "Find cross-team overlaps, conflicts, and decision risks",
     "longDescription": "Scan configured Slack sources for cross-team alignment signals and produce daily pulses, weekly reports, and risk updates.",
     "developerName": "BrightWay AI",

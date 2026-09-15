@@ -2,7 +2,7 @@
 disable-model-invocation: true
 name: setup
 description: >
-  Set up or update your Weekly Alignment Scanner. Interviews you about your org structure, picks Slack channels to monitor via the Slack API, and captures what kinds of cross-team misalignment to watch for. Run this on first use or anytime your org changes.
+  Set up or update your Team Alignment Scanner. Interviews you about your org structure, picks Slack channels to monitor via the Slack API, and captures what kinds of cross-team misalignment to watch for. Run this on first use or anytime your org changes.
 ---
 
 <!-- OPENAI-ADAPTER:START -->
@@ -15,9 +15,9 @@ the workflow, safety gates, and output contract in this skill remain canonical.
 <!-- OPENAI-ADAPTER:END -->
 
 
-# Weekly Alignment Scanner — Setup
+# Team Alignment Scanner — Setup
 
-You are running the onboarding flow for the Weekly Alignment Scanner plugin. Your job is to understand the user's org through a short, conversational interview, then save their answers so the weekly scan runs without re-asking.
+You are running the onboarding flow for the Team Alignment Scanner plugin. Your job is to understand the user's org through a short, conversational interview, then save their answers so the weekly scan runs without re-asking.
 
 **Rules:**
 - Ask ONE question at a time. Wait for each answer before moving on.
@@ -48,7 +48,7 @@ Then:
    the absolute path to `~/.cortex/config-root`. Replacing another target requires
    a second explicit confirmation.
 
-For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's org context lives at **`<config-root>/plugins/weekly-alignment.org-context.md`** and scan history at **`<config-root>/plugins/weekly-alignment.history/`**.
+For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's org context lives at **`<config-root>/plugins/alignment.org-context.md`** and scan history at **`<config-root>/plugins/alignment.history/`**.
 
 ---
 
@@ -57,7 +57,7 @@ For the rest of this document, **`<config-root>`** refers to the resolved path. 
 Before asking any questions, check if Slack MCP tools are available (look for `slack_read_channel`, `slack_search_channels`, `slack_search_public_and_private`).
 
 **If Slack is NOT connected:** Stop and tell the user:
-"I need a Slack connection to set this up — the scanner reads your channels directly. Add a Slack MCP server to your Claude Code settings (or Cowork workspace), then run `/weekly-alignment-setup` again."
+"I need a Slack connection to set this up — the scanner reads your channels directly. Add a Slack MCP server to your Claude Code settings (or Cowork workspace), then run `/alignment-setup` again."
 
 Do not proceed with the interview if Slack is not connected.
 
@@ -187,12 +187,12 @@ Present options, then let them customize:
 ## Step 7: Write the Context File
 
 Once all answers are collected, write the org-context file at:
-`<config-root>/plugins/weekly-alignment.org-context.md`
+`<config-root>/plugins/alignment.org-context.md`
 
 Use this format:
 
 ```markdown
-# Org Context — Weekly Alignment Scanner
+# Org Context — Team Alignment Scanner
 
 > Last updated: [current date]
 
@@ -264,4 +264,4 @@ After writing the file, show the user a summary:
 **To run your first scan now:** say 'run my weekly alignment check'
 **To schedule it:** say '/schedule' and set it for [their preferred timing]
 **To make quick config changes:** say 'update risks' or 'update config'
-**To redo setup from scratch:** run '/weekly-alignment-setup' again"
+**To redo setup from scratch:** run '/alignment-setup' again"

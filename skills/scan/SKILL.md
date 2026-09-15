@@ -15,7 +15,7 @@ the workflow, safety gates, and output contract in this skill remain canonical.
 <!-- OPENAI-ADAPTER:END -->
 
 
-# Weekly Alignment Scanner
+# Team Alignment Scanner
 
 You are running a weekly cross-team alignment scan. The read-and-synthesize work is delegated to the `alignment-scanner` agent (`mode: scan`) so it runs in its own context window; this skill handles pre-flight checks, delivery, and history — the side effects the agent doesn't do.
 
@@ -33,20 +33,20 @@ Do not proceed without Slack.
 ### Check Org Context
 
 Read the org context file at:
-`<config-root>/plugins/weekly-alignment.org-context.md`
+`<config-root>/plugins/alignment.org-context.md`
 
 **If the file does not exist at all, or contains `[NOT YET CONFIGURED]` markers:** Tell the user:
 "Your alignment scanner hasn't been set up yet. Let's fix that now — I'll ask you a few questions about your teams and channels. Takes about 5 minutes."
 
-Then immediately invoke the Skill tool with skill `weekly-alignment-setup` to start the setup interview. Once setup completes and the org-context file is written, continue with the scan from Step 1 below — do NOT ask the user to re-run the alignment check.
+Then immediately invoke the Skill tool with skill `alignment-setup` to start the setup interview. Once setup completes and the org-context file is written, continue with the scan from Step 1 below — do NOT ask the user to re-run the alignment check.
 
 **If the file is configured:** Proceed with the scan using the org context to guide every step.
 
 ## Step 1: Delegate to alignment-scanner
 
 Invoke the Task tool with `subagent_type="alignment-scanner"` and `mode: "scan"`. Pass:
-- **`org-context`** — the parsed contents of `weekly-alignment.org-context.md`.
-- **`history`** (optional) — recent files from `<config-root>/plugins/weekly-alignment.history/`, `.../history/pulses/`, `.../history/reports/`, if any exist.
+- **`org-context`** — the parsed contents of `alignment.org-context.md`.
+- **`history`** (optional) — recent files from `<config-root>/plugins/alignment.history/`, `.../history/pulses/`, `.../history/reports/`, if any exist.
 
 The agent returns a delivery-ready brief plus a structured findings list (severity, teams, one-line summary).
 
@@ -66,6 +66,6 @@ Always end with a "WHAT'S NEXT" footer: to dig deeper into any finding, "dig int
 ## Step 3: Save to History
 
 After delivering, save a copy to:
-`<config-root>/plugins/weekly-alignment.history/[YYYY-MM-DD].md`
+`<config-root>/plugins/alignment.history/[YYYY-MM-DD].md`
 
 The saved file is the full brief content as-is.

@@ -14,8 +14,8 @@ You read Slack channels and detect cross-team misalignment. The parent skill inv
 
 ## Shared inputs (all modes)
 
-- **`org-context`** — the parsed contents of `<config-root>/plugins/weekly-alignment.org-context.md`: primary channels, secondary channels, custom detection patterns ("what to watch for"), current tracked risks/tensions, detail-level preference, delivery preference.
-- **`history`** (optional) — recent prior scans from `<config-root>/plugins/weekly-alignment.history/`, daily pulses from `.../history/pulses/`, and deep-dive reports from `.../history/reports/`, if any exist. Use for recurrence/resolution tracking (mode: scan) — otherwise skip.
+- **`org-context`** — the parsed contents of `<config-root>/plugins/alignment.org-context.md`: primary channels, secondary channels, custom detection patterns ("what to watch for"), current tracked risks/tensions, detail-level preference, delivery preference.
+- **`history`** (optional) — recent prior scans from `<config-root>/plugins/alignment.history/`, daily pulses from `.../history/pulses/`, and deep-dive reports from `.../history/reports/`, if any exist. Use for recurrence/resolution tracking (mode: scan) — otherwise skip.
 
 ## Shared access
 

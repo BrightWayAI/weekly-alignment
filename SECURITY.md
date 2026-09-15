@@ -2,7 +2,7 @@
 
 ## What this plugin does with your data
 
-Weekly Alignment scans Slack channels you've configured during `/setup` to identify cross-team misalignments, overlapping initiatives, and conflicting priorities. Read-only against Slack; writes only local history files and reports.
+Team Alignment scans Slack channels you've configured during `/setup` to identify cross-team misalignments, overlapping initiatives, and conflicting priorities. Read-only against Slack; writes only local history files and reports.
 
 **Reads:**
 - **Slack** (specifically the channels configured during `/setup`) — channel messages within the scan window, threaded replies. Only channels you've explicitly listed are scanned.

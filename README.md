@@ -1,4 +1,4 @@
-# Weekly Alignment Scanner
+# Team Alignment Scanner
 
 A Claude Code plugin that monitors your Slack channels for cross-team misalignment — duplicate work, conflicting decisions, and coordination gaps.
 
@@ -43,10 +43,10 @@ Plus whatever org-specific patterns you describe during setup.
 
 ```
 /plugin marketplace add BrightWayAI/nucleus
-/plugin install weekly-alignment@nucleus
+/plugin install alignment@nucleus
 ```
 
-Or copy this `weekly-alignment` folder into your Claude Code plugins directory.
+Or copy this `alignment` folder into your Claude Code plugins directory.
 
 ### First Run
 
@@ -54,7 +54,7 @@ Just say `run my weekly alignment check`. If you haven't set up yet, the scanner
 
 Or run setup explicitly:
 ```
-/weekly-alignment-setup
+/alignment-setup
 ```
 
 Setup takes ~5 minutes. Claude pulls your Slack channels live from the API (so you pick from a list instead of typing names), asks about your teams, and captures what kinds of misalignment happen in your org. Your answers get saved so the interview doesn't repeat.
@@ -92,16 +92,16 @@ decide who owns caching.
 
 ## Customization
 
-Run `/weekly-alignment-setup` again anytime your org changes — new teams, new channels, new risks.
+Run `/alignment-setup` again anytime your org changes — new teams, new channels, new risks.
 
-For quick updates to what you're tracking (without re-running the full interview), use `/weekly-alignment-update-config`.
+For quick updates to what you're tracking (without re-running the full interview), use `/alignment-update-config`.
 
 <!-- OPENAI-SUPPORT:START -->
 ## ChatGPT and Codex
 
-Weekly Alignment ships as a native OpenAI plugin as well as a Claude plugin. In
-ChatGPT desktop Local Work, enable **Weekly Alignment** and ask naturally or mention
-`@Weekly Alignment`. In Codex, use natural language or the namespaced skills exposed
+Team Alignment ships as a native OpenAI plugin as well as a Claude plugin. In
+ChatGPT desktop Local Work, enable **Team Alignment** and ask naturally or mention
+`@Team Alignment`. In Codex, use natural language or the namespaced skills exposed
 by the plugin. Claude slash-command names in this README remain workflow aliases.
 
 All hosts resolve the same `<config-root>` used by Cortex, so Claude, ChatGPT desktop,

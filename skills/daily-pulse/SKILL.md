@@ -31,11 +31,11 @@ Verify that Slack MCP tools are available (`slack_read_channel`, `slack_search_c
 ### Check Org Context
 
 Read the org context file at:
-`<config-root>/plugins/weekly-alignment.org-context.md`
+`<config-root>/plugins/alignment.org-context.md`
 
 **If the file does not exist at all, or contains `[NOT YET CONFIGURED]` markers:** Tell the user:
 "You haven't set up your alignment scanner yet. Let's do that first."
-Then invoke the Skill tool with skill `weekly-alignment-setup`. Once complete, continue with the pulse check.
+Then invoke the Skill tool with skill `alignment-setup`. Once complete, continue with the pulse check.
 
 **If configured:** Proceed.
 
@@ -50,9 +50,9 @@ Deliver based on the user's delivery preference from org context. If no preferen
 ## Step 3: Save to History
 
 Save a copy of the pulse output to:
-`<config-root>/plugins/weekly-alignment.history/pulses/[YYYY-MM-DD].md`
+`<config-root>/plugins/alignment.history/pulses/[YYYY-MM-DD].md`
 
 ## Notes
 
 - This is NOT the weekly scan. `alignment-scanner`'s `mode: pulse` does not do full cross-team analysis.
-- If the agent flags something as a possible real conflict, suggest running `/weekly-alignment-scan` or a `mode: report` deep dive.
+- If the agent flags something as a possible real conflict, suggest running `/alignment-scan` or a `mode: report` deep dive.

@@ -22,11 +22,11 @@ You are helping the user quickly update their alignment scanner config — witho
 ## Pre-Flight Check
 
 Read the org context file at:
-`<config-root>/plugins/weekly-alignment.org-context.md`
+`<config-root>/plugins/alignment.org-context.md`
 
 **If the file does not exist at all, or contains `[NOT YET CONFIGURED]` markers:** Tell the user:
 "You haven't set up your alignment scanner yet. Let's do that first."
-Then invoke the Skill tool with skill `weekly-alignment-setup`. Once complete, return here.
+Then invoke the Skill tool with skill `alignment-setup`. Once complete, return here.
 
 **If configured:** Proceed.
 
@@ -80,12 +80,12 @@ Accept multiple changes in one go. Confirm what you heard:
 
 Sound right?"
 
-**Note:** For major org restructuring (like completely new team structure, new role, or wholesale channel overhaul), recommend running the full `/weekly-alignment-setup` instead — it's designed for that level of change.
+**Note:** For major org restructuring (like completely new team structure, new role, or wholesale channel overhaul), recommend running the full `/alignment-setup` instead — it's designed for that level of change.
 
 ## Step 3: Write Updates
 
 Update the org context file at:
-`<config-root>/plugins/weekly-alignment.org-context.md`
+`<config-root>/plugins/alignment.org-context.md`
 
 Only modify the sections that changed. Do NOT touch other sections unless the user explicitly asked to change them.
 
@@ -95,4 +95,4 @@ Update the "Last updated" date at the top of the file.
 
 "Updated. Your next scan will pick up these changes. Want me to run a quick pulse check now to see if anything's already showing up?"
 
-If they say yes, invoke the Skill tool with skill `weekly-alignment-daily-pulse`.
+If they say yes, invoke the Skill tool with skill `alignment-daily-pulse`.
